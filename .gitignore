@@ -20,9 +20,7 @@ build/
 
 # Django specific
 .db
-db.sqlite3
-media/
-static/
+
 
 # Environment variables
 .env
