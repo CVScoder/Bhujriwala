@@ -2,21 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
-
-void main() {
-  runApp(BhujriwalaApp());
-}
-
-class BhujriwalaApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Bhujriwala',
-      theme: ThemeData(primarySwatch: Colors.green),
-      home: PaymentScreen(),
-    );
-  }
-}
+import '../services/api_service.dart';
 
 class PaymentScreen extends StatefulWidget {
   @override
@@ -38,30 +24,20 @@ class _PaymentScreenState extends State<PaymentScreen> {
     }
 
     try {
-      final response = await http.post(
-        Uri.parse('http://localhost:8000/api/create-order/'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'amount': amount, 'userAddress': userAddress}),
+      final orderData = await ApiService.createOrder(amount, userAddress);
+      final orderId = orderData['orderId'];
+      final amountInPaise = orderData['amount'];
+
+      final razorpayKey = 'rzp_test_your_key_id'; // Replace with your key
+      final paymentUrl = Uri.parse(
+        'http://localhost:8080/pay?orderId=$orderId&amount=$amountInPaise&key=$razorpayKey&address=$userAddress',
       );
 
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        final orderId = data['orderId'];
-        final amountInPaise = data['amount'];
-
-        final razorpayKey = 'rzp_test_your_key_id'; // Replace with your key
-        final paymentUrl = Uri.parse(
-          'http://localhost:8080/pay?orderId=$orderId&amount=$amountInPaise&key=$razorpayKey&address=$userAddress',
-        );
-
-        if (await canLaunchUrl(paymentUrl)) {
-          await launchUrl(paymentUrl, mode: LaunchMode.externalApplication);
-          setState(() => status = "Payment initiated. Complete in browser.");
-        } else {
-          setState(() => status = "Failed to launch payment URL");
-        }
+      if (await canLaunchUrl(paymentUrl)) {
+        await launchUrl(paymentUrl, mode: LaunchMode.externalApplication);
+        setState(() => status = "Payment initiated. Complete in browser.");
       } else {
-        setState(() => status = "Order creation failed: ${response.body}");
+        setState(() => status = "Failed to launch payment URL");
       }
     } catch (e) {
       setState(() => status = "Error: $e");
