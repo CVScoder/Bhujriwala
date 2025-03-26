@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Razorpay Payment</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderId = urlParams.get('orderId');
+    const amount = urlParams.get('amount');
+    const key = urlParams.get('key');
+    const userAddress = urlParams.get('address');
+
+    const options = {
+      key: key,
+      amount: amount,
+      currency: 'INR',
+      order_id: orderId,
+      handler: function (response) {
+        fetch('http://localhost:8000/api/verify-payment/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            paymentId: response.razorpay_payment_id,
+            orderId: response.razorpay_order_id,
+            signature: response.razorpay_signature,
+            userAddress: userAddress,
+            amount: amount
+          }),
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            alert('Payment successful! WasteTokens minted. Tx: ' + data.txHash);
+          } else {
+            alert('Verification failed: ' + data.error);
+          }
+        });
+      },
+      prefill: { name: 'Bhujriwala User', email: 'test@bhujriwala.com' },
+      theme: { color: '#4CAF50' }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+  </script>
+</body>
+</html>
