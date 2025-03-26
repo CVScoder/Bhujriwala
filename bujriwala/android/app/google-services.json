@@ -1,0 +1,134 @@
+{
+  "project_info": {
+    "project_number": "780500873608",
+    "project_id": "bhujriwala-e26d9",
+    "storage_bucket": "bhujriwala-e26d9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780500873608:android:eeea9c9e520b931db64a3d",
+        "android_client_info": {
+          "package_name": "com.example.bhujhriwala_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780500873608-56cmom6tr0atl9mv6gn9qbqbt4atgjdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2R6RgHzW-13EAqUQUUZx7EDpv9_72xJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780500873608-56cmom6tr0atl9mv6gn9qbqbt4atgjdk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "780500873608-1dv8g7vmoat33ucpotapf49gbq1veak8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bhujhriwalaMobile"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780500873608:android:89827e55fcf3c844b64a3d",
+        "android_client_info": {
+          "package_name": "com.example.bhujriwala_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780500873608-89uoa1j7lo2tg64sngc8l9af5b608dvh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bhujriwala_app",
+            "certificate_hash": "8fa7ba370844fba0e0a8e7df3f9db84f1ba89f1c"
+          }
+        },
+        {
+          "client_id": "780500873608-56cmom6tr0atl9mv6gn9qbqbt4atgjdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2R6RgHzW-13EAqUQUUZx7EDpv9_72xJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780500873608-56cmom6tr0atl9mv6gn9qbqbt4atgjdk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "780500873608-1dv8g7vmoat33ucpotapf49gbq1veak8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bhujhriwalaMobile"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780500873608:android:80b929b542e67f91b64a3d",
+        "android_client_info": {
+          "package_name": "com.example.bujriwala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780500873608-67e3n8ho586jpbpm9i7o6v1hfbodcpfs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bujriwala",
+            "certificate_hash": "8fa7ba370844fba0e0a8e7df3f9db84f1ba89f1c"
+          }
+        },
+        {
+          "client_id": "780500873608-56cmom6tr0atl9mv6gn9qbqbt4atgjdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2R6RgHzW-13EAqUQUUZx7EDpv9_72xJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780500873608-56cmom6tr0atl9mv6gn9qbqbt4atgjdk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "780500873608-1dv8g7vmoat33ucpotapf49gbq1veak8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bhujhriwalaMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
