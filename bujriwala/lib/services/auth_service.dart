@@ -8,7 +8,6 @@ class AuthService {
   Future<User?> signInWithGoogle(String role) async {
     try {
       print("Starting Google Sign-In...");
-      // Reset sign-in state to avoid stale data
       await _googleSignIn.signOut();
       final googleUser = await _googleSignIn.signIn();
       print("Google User Result: $googleUser");
@@ -18,7 +17,7 @@ class AuthService {
         return null;
       }
 
-      print("Google User Type: ${googleUser.runtimeType}"); // Expect GoogleSignInAccount
+      print("Google User Type: ${googleUser.runtimeType}");
       final googleAuth = await googleUser.authentication;
       print("Google Auth: accessToken=${googleAuth.accessToken}, idToken=${googleAuth.idToken}");
 
@@ -35,6 +34,7 @@ class AuthService {
         return User(
           email: firebaseUser.email ?? '',
           role: role.toLowerCase(),
+          address: '0x51E1bCb40463C49eDD3426d0C2cF58785d8003fE', // Default test address
         );
       }
       return null;
@@ -48,9 +48,11 @@ class AuthService {
 class User {
   final String email;
   final String role;
+  final String address;
 
   User({
     required this.email,
     required this.role,
+    required this.address,
   });
 }
